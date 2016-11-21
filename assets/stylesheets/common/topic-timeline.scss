@@ -1,0 +1,15 @@
+.timeline-container {
+  @media all and (min-width: 1250px) {
+    margin-left: 1020px;
+  }
+  .topic-timeline {
+    margin-left: 0;
+    text-align: center;
+    width: 70px;
+    transition: opacity 0.2s ease-in;
+    background: rgba(255,255,255,0.86);
+    border: 1px solid rgba(150,150,150,0.17);
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.03);
+    border-radius: 7px;
+  }
+}

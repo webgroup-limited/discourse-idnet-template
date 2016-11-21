@@ -1,0 +1,9 @@
+<th data-sort-order='{{order}}' class='{{view.className}} idnet table-header' colspan="6">
+  <span>{{view.localizedName}}</span>
+  {{~#if view.isSorting}}
+    <i class='{{view.sortClass}}'></i>
+  {{/if ~}}
+  {{~#if showBulkToggle}}
+    <button class='btn bulk-select' title='{{i18n "topics.bulk.toggle"}}'><i class='fa fa-list'></i> {{i18n 'select'}}</button>
+  {{/if ~}}
+</th>

@@ -1,0 +1,145 @@
+.user-link {
+  font-weight: 700;
+  font-size: 12px;
+  color: #DC7600 !important;
+}
+
+.idnet {
+  &.table {
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.10);
+    border-radius: 3px;
+    tbody {
+      tr:nth-child(even) {
+        background: #F5F5F5;
+      }
+    }
+    th:first-child,
+    td:first-child {
+      padding-left: 19px;
+    }
+  }
+  &.table-header {
+    font-weight: 700;
+    font-size: 11px;
+    color: #BBBBBB;
+    text-transform: uppercase;
+    border-bottom: 1px solid #EAEAEA;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    span {
+      line-height: 30px;
+    }
+    .btn {
+      padding: 5px 10px;
+      float: right;
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 3px;
+      font-size: 12px;
+      color: #666666;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+  }
+  &.stats-cnt {
+    width: 80px;
+    text-align: left;
+    font-size: 12px;
+    div {
+      color: #BBBBBB;
+    }
+    span {
+      font-weight: 700;
+      color: #666666;
+    }
+  }
+  &.info-below-topic-title {
+    font-size: 10px;
+    color: #999999;
+    .user-link {
+      font-size: 10px;
+    }
+    .category {
+      margin-left: 5px;
+    }
+  }
+  &.last-topic {
+    text-align: left;
+    font-size: 12px;
+    div {
+      color: #BBBBBB;
+    }
+    .post {
+      display: inline-table;
+      vertical-align: middle;
+      .title {
+        font-weight: 700;
+        font-size: 11px;
+        color: #333333;
+      }
+      .last-poster {
+        line-height: 8px;
+        .user-link {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+
+.topic-list {
+  .avatar {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.dot-separator {
+  background: #D8D8D8;
+  border-radius: 9px;
+  width: 3px;
+  height: 3px;
+  margin: 2px 3px;
+  display: inline-block;
+}
+
+.topic-list-bottom,
+.user-main,
+.admin-contents {
+  background: #FCFCFC;
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.10);
+  border-radius: 3px;
+  padding: 19px;
+}
+
+@media (max-width: 1024px) {
+  .current-user span {
+    display: none;
+  }
+}
+
+.menu-panel {
+  padding: 10px 15px;
+  background: #FCFCFC;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  .idnet-menu-links,
+  .idnet-admin-menu-links,
+  .logout-link {
+    li {
+      padding: 5px 0;
+      a {
+        font-size: 12px;
+        font-weight: 700;
+        color: black;
+        i {
+          width: 20px;
+        }
+        .badge-notification {
+          float: right;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{{#discovery-categories refresh="refresh"}}
+  {{component categoryPageStyle
+              categories=model.categories
+              latestTopicOnly=latestTopicOnly
+              showCreateButton=showCreateButton
+              canCreate=canCreate
+              createCategory="createCategory"
+              showEditButton=showEditButton
+              canEdit=canEdit
+              editCategory="editCategory"
+              parentCategory=model.parentCategory
+              topics=model.topics}}
+{{/discovery-categories}}

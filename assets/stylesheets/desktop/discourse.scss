@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+body {
+  background-color: #28619F;
+  font-family: 'Roboto';
+  font-weight: 400;
+}
+
+.topic-statuses {
+  display: inline;
+  .topic-status {
+    i {
+        color: black !important;
+        font-size: 12px;
+      }
+  }
+}

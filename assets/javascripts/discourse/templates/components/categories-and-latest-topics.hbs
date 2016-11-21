@@ -1,0 +1,23 @@
+{{categories-only categories=categories
+                  showCreateButton=showCreateButton
+                  canCreate=canCreate
+                  createCategory=createCategory
+                  showEditButton=showEditButton
+                  canEdit=canEdit
+                  editCategory=editCategory}}
+
+<table class="topic-list topic-list-latest idnet table">
+  <thead>
+    <tr>
+      <th class="latest idnet table-header" colspan="6"><span>{{i18n "filters.latest.latest_topics"}}</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each topics as |topic|}}
+      {{topic-list-item topic=topic}}
+      {{raw "list/visited-line" lastVisitedTopic=lastVisitedTopic topic=topic}}
+    {{/each}}
+  </tbody>
+</table>
+
+<div class="clearfix"></div>

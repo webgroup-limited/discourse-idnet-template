@@ -1,0 +1,64 @@
+{{#if categories}}
+  <table class="category-list idnet table {{if showTopics 'with-topics'}}">
+    <thead>
+      <tr>
+        <th class="category idnet table-header" colspan="5">
+          {{#if parentCategory}}
+            <span>{{i18n 'categories.subcategories_of'}} {{parentCategory.name}}</span>
+          {{else}}
+            <span>{{i18n 'categories.title'}}</span>
+          {{/if}}
+          {{#if showCreateButton}}
+            {{#if canCreate}}
+              <button id="create-category" class='btn btn-default' {{action "createCategory"}}><i class='fa fa-list'></i>{{i18n 'category.create'}}</button>
+            {{/if}}
+          {{/if}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each categories as |c|}}
+        <tr data-category-id={{c.id}} class="{{if c.description_excerpt 'has-description' 'no-description'}} {{if c.logo_url 'has-logo' 'no-logo'}}">
+          <td>
+            {{#if c.logo_url}}
+              <div>{{cdn-img src=c.logo_url class="category-logo"}}</div>
+            {{/if}}
+          </td>
+          <td class="category">
+            <div>
+              {{category-title-link category=c}}
+              <div class="category-description">
+                {{{c.description_excerpt}}}
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            {{#if c.subcategories}}
+              <div class='subcategories'>
+                <span class="label">{{i18n 'categories.subcategories'}}:</span>
+                {{#each c.subcategories as |s|}}
+                  <span class='subcategory'>
+                    {{category-link s}}
+                    {{category-unread category=s}}
+                  </span>
+                {{/each}}
+              </div>
+            {{/if}}
+          </td>
+          <td class="topics idnet stats-cnt">
+            <div>{{i18n 'categories.topics'}}</div>
+            {{number c.topic_count}}
+          </td>
+          <td class="posts idnet stats-cnt">
+            <div>{{i18n 'categories.posts'}}</div>
+            {{number c.post_count}}
+          </td>
+          <td class="latest idnet last-topic">
+            <div>{{i18n 'last_post'}}</div>
+            {{raw "list/last-topic" topic=c.last_topic showTopic="true"}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="clearfix"></div>
+{{/if}}

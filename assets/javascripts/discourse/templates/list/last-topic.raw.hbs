@@ -1,0 +1,9 @@
+{{avatar topic.lastPoster usernamePath="username" imageSize="small"}}
+<div class='post'>
+  {{#if showTopic}}<a class='title' href="{{topic.lastPostUrl}}">{{topic.fancyTitle}}</a>{{/if}}
+  <div class='last-poster'>
+    by <a href="{{topic.lastPoster.path}}" class="user-link">{{topic.lastPoster.username}}</a>
+    <span class="dot-separator"></span>
+    {{format-date topic.last_posted_at format="medium-with-ago"}}
+  </div>
+</div>

@@ -1,0 +1,32 @@
+html.anon .topic-list a.title:visited:not(.badge-notification) {color: #333;}
+.topic-list a.title.visited:not(.badge-notification) {color: #333;}
+
+.topic-list {
+  > tbody > tr {
+    border-bottom: 0;
+  }
+
+  > tbody > tr:first-of-type {
+    border-top: 1px solid dark-light-diff($primary, $secondary, 90%, -75%);
+  }
+
+  .main-link {
+    a.title {
+      padding: 0;
+      font-weight: 700;
+      font-size: 14px;
+      color: #333333;
+    }
+  }
+
+  .topic-excerpt {
+    font-size: 12px;
+    color: #999999;
+  }
+}
+
+.topic-list.categories {
+  td.category {
+    border-left: 0;
+  }
+}

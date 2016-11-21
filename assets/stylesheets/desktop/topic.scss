@@ -1,0 +1,21 @@
+.post-menu-area {
+  margin-bottom: 0;
+}
+
+#topic-title {
+  z-index: 1000;
+  padding: 25px 30px 15px 30px;
+  margin-bottom: 0;
+  .badge-category {
+    font-weight: 700;
+    font-size: 11px;
+    color: #BBBBBB;
+  }
+  h1 {
+    a {
+      font-weight: 700;
+      font-size: 22px;
+      color: #333333;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+en:
+  js:
+    select: Select
+    categories:
+      title: Categories
+      subcategories_of: Sub-categories of
+    filters:
+      latest:
+        latest_topics: Latest topics
