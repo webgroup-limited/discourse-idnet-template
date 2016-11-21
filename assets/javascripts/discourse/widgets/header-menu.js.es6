@@ -21,12 +21,16 @@ createWidget('header-menu-links', {
 
   html(attrs) {
     let items = Discourse.SiteSettings.top_menu.split("|");
+    let items_length = items.length;
+    let i;
 
     items = items.map(i => Discourse.NavItem.fromText(i, attrs));
 
     const menuLinks = [];
 
-    for (let item of items) {
+    for (i = 0; i < items_length; i++) {
+      let item = items[i];
+
       if (!item) { continue; }
 
       var state = item.get('topicTrackingState');
