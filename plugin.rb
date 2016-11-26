@@ -112,6 +112,7 @@ end
 
 register_asset "javascripts/discourse/components/categories-only.js.es6"
 
+register_asset "stylesheets/application.scss"
 register_asset "stylesheets/common/base/_topic-list.scss"
 register_asset "stylesheets/common/base/discourse.scss"
 register_asset "stylesheets/common/base/header.scss"

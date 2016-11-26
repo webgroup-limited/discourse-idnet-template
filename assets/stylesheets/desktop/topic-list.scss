@@ -8,6 +8,12 @@
   .posts {
     width: auto;
   }
+  th,
+  td {
+    &:last-of-type {
+      padding-right: 19px;
+    }
+  }
 }
 
 .topic-list.categories {
