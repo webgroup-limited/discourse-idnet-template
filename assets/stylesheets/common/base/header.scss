@@ -4,6 +4,7 @@
     margin: 20px 0 0 0;
     height: 31px;
     padding: 10px 19px;
+    background-color: $header_background;
   }
   .login-button, button.sign-up-button {
     margin-top: 0;
@@ -75,6 +76,10 @@
           right: 48px;
         }
       }
+    }
+    .unread-notifications {
+      left: 227px;
+      right: initial;
     }
   }
   .current-user {

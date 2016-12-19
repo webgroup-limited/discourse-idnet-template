@@ -40,18 +40,14 @@ createWidget('header-notifications', {
       contents.push(attrs.contents.call(this));
     }
 
-    const unreadNotifications = currentUser.get('unread_notifications');
-    if (!!unreadNotifications) {
+    const notificationsCount = currentUser.get('unread_notifications') +
+                               currentUser.get('unread_private_messages') +
+                               attrs.flagCount;
+
+    if (notificationsCount) {
       contents.push(this.attach('link', { action: attrs.action,
                                           className: 'badge-notification unread-notifications',
-                                          rawLabel: unreadNotifications }));
-    }
-
-    const unreadPMs = currentUser.get('unread_private_messages');
-    if (!!unreadPMs) {
-      contents.push(this.attach('link', { action: attrs.action,
-                                          className: 'badge-notification unread-private-messages',
-                                          rawLabel: unreadPMs }));
+                                          rawLabel: notificationsCount }));
     }
 
     return contents;
@@ -132,15 +128,7 @@ createWidget('header-icons', {
     if (this.currentUser) {
       icons.push(this.attach('user-dropdown', { active: attrs.userVisible,
                                                 action: 'toggleUserMenu',
-                                                contents() {
-                                                  if (!attrs.flagCount) { return; }
-                                                  return this.attach('link', {
-                                                    href: Discourse.getURL('/admin/flags/active'),
-                                                    title: 'notifications.total_flagged',
-                                                    rawLabel: attrs.flagCount,
-                                                    className: 'badge-notification flagged-posts'
-                                                  });
-                                                }
+                                                flagCount: attrs.flagCount,
                                               }));
 
       icons.push(this.attach('create-topic'));
@@ -263,6 +251,12 @@ export default createWidget('header', {
 
   toggleUserMenu() {
     this.state.userVisible = !this.state.userVisible;
+
+    if (this.state.userVisible) {
+      $('.badge-notification').hide();
+    } else {
+      $('.badge-notification').show();
+    }
   },
 
   toggleHamburger() {

@@ -10,6 +10,8 @@ export default createWidget('user-notifications', {
     return [this.attach('link', { label: 'user.notifications',
                       className: 'user-notifications-link',
                       icon: 'bookmark',
-                      href: `${attrs.path}/notifications` })];
+                      href: `${attrs.path}/notifications`,
+                      badgeCount: 'unread_notifications',
+                      badgeClass: 'unread-notifications' })];
   }
 });
