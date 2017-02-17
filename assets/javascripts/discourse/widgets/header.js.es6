@@ -199,15 +199,11 @@ export default createWidget('header', {
 
     const contents = [ this.attach('home-logo', { minimized: !!attrs.topic })];
 
-    if (!(/^\/admin/i.test(location.pathname) || /^\/t\//i.test(location.pathname)) && !this.site.mobileView) {
+    if (!(/^\/admin/i.test(location.pathname)) && !this.site.mobileView) {
       contents.push(this.attach('header-menu'));
     }
 
     contents.push(h('div.panel.clearfix', panels));
-
-    if (attrs.topic) {
-      contents.push(this.attach('header-topic-info', attrs));
-    }
 
     return h('div.wrap', h('div.contents.clearfix.idnet.table', contents));
   },
