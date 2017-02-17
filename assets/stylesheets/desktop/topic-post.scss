@@ -32,6 +32,10 @@ $topic-avatar-width: 90px;
   border-radius: 2px;
   padding-right: 12px;
   text-align: right;
+  .username {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .avatar {
     width: 48px;
     height: 48px;
