@@ -327,7 +327,7 @@ createWidget('post-meta-body', {
   html(attrs) {
     const result = [];
 
-    if (attrs.reply_to_post_number) {
+    if (showReplyTab(attrs, this.siteSettings)) {
       result.push(this.attach('post-meta-data', attrs));
     }
 
