@@ -61,3 +61,29 @@ $topic-avatar-width: 90px;
     margin: 0;
   }
 }
+
+.embedded-posts {
+  margin-bottom: 10px;
+
+  .topic-body {
+    box-sizing: border-box;
+    width: calc(100% - 130px); // [100% - .topic-avatar width]
+    // WARNING: overflow hide is required for quoted / embedded images
+    // which expect "normal" post width, but expansions are narrower
+    overflow: hidden;
+    padding: 15px 15px 0 15px;
+    margin-top: 15px;
+    .topic-meta-data {
+      display: none;
+    }
+    .cooked {
+      margin-top: 0;
+    }
+  }
+
+  // top means "in reply to expansion" above a post
+  &.top {
+    margin-left: 0;
+    width: 974px;
+  }
+}

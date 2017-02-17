@@ -145,3 +145,13 @@
     }
   }
 }
+
+.topic-meta-body {
+  float: left;
+  .topic-meta-data {
+    background: rgba(215, 215, 215, 0.29);
+    margin-bottom: 2px;
+    padding: 12px 11px 15px 11px;
+    border-radius: 6px;
+  }
+}

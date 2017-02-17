@@ -308,7 +308,7 @@ createWidget('post-body', {
   tagName: 'div.topic-body.clearfix',
 
   html(attrs) {
-    const result = [this.attach('post-meta-data', attrs)];
+    const result = [];
 
     const postContents = this.attach('post-contents', attrs);
 
@@ -317,6 +317,21 @@ createWidget('post-body', {
     result.push(this.attach('actions-summary', attrs));
     result.push(this.attach('post-links', attrs));
 
+    return result;
+  }
+});
+
+createWidget('post-meta-body', {
+  tagName: 'div.topic-meta-body.clearfix',
+
+  html(attrs) {
+    const result = [];
+
+    if (attrs.reply_to_post_number) {
+      result.push(this.attach('post-meta-data', attrs));
+    }
+
+    result.push(this.attach('post-body', attrs));
     return result;
   }
 });
@@ -350,11 +365,10 @@ createWidget('post-article', {
       const replies = state.repliesAbove.map(p => {
         return this.attach('embedded-post', p, { model: this.store.createRecord('post', p), state: { above: true } });
       });
-
       rows.push(h('div.row', h('section.embedded-posts.top.topic-body.offset2', replies)));
     }
 
-    rows.push(h('div.row', [this.attach('post-avatar', attrs), this.attach('post-body', attrs)]));
+    rows.push(h('div.row', [this.attach('post-avatar', attrs), this.attach('post-meta-body', attrs)]));
     return rows;
   },
 
