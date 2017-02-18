@@ -19,6 +19,9 @@
       padding-left: 19px;
       padding-right: 19px;
     }
+    .has-logo td:first-child {
+      width: 16px;
+    }
   }
   &.table-header {
     font-weight: 700;
