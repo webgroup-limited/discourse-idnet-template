@@ -6,10 +6,14 @@
   z-index: 1000;
   padding: 25px 30px 15px 30px;
   margin-bottom: 0;
+  .badge-category-bg {
+    display: none;
+  }
   .badge-category {
     font-weight: 700;
     font-size: 11px;
-    color: #BBBBBB;
+    color: #BBBBBB !important;
+    text-transform: uppercase;
   }
   h1 {
     a {
