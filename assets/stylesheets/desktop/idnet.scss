@@ -65,6 +65,7 @@
     }
   }
   &.last-topic {
+    width: 200px;
     text-align: left;
     font-size: 12px;
     white-space: nowrap;
@@ -78,6 +79,11 @@
         font-weight: 700;
         font-size: 11px;
         color: #333333;
+        display: inline-block;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
       }
       .last-poster {
         line-height: 8px;
