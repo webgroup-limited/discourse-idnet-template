@@ -1,0 +1,21 @@
+.idnet {
+  &.table-header {
+    padding: 0 0 0 15px;
+    span {
+      float: left;
+    }
+    .btn {
+      float: right;
+    }
+  }
+  td {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  &.last-topic {
+    display: none;
+  }
+  &.info-below-topic-title {
+    display: none;
+  }
+}
