@@ -113,7 +113,7 @@ createWidget('header-icons', {
                         }
                       });
 
-    const search = this.attach('search-menu', {
+    const search = this.attach('header-dropdown', {
                      title: 'search.title',
                      icon: 'search',
                      iconId: 'search-button',
@@ -178,7 +178,7 @@ export default createWidget('header', {
   buildKey: () => `header`,
 
   defaultState() {
-    return { searchVisible: true,
+    return { searchVisible: false,
              hamburgerVisible: false,
              userVisible: false,
              contextEnabled: false };
@@ -191,7 +191,9 @@ export default createWidget('header', {
                                                   searchVisible: state.searchVisible,
                                                   flagCount: attrs.flagCount })];
 
-    if (state.hamburgerVisible) {
+    if (state.searchVisible) {
+      panels.push(this.attach('search-menu', { contextEnabled: state.contextEnabled }));
+    } else if (state.hamburgerVisible) {
       panels.push(this.attach('hamburger-menu'));
     } else if (state.userVisible) {
       panels.push(this.attach('user-menu'));
@@ -218,6 +220,7 @@ export default createWidget('header', {
   closeAll() {
     this.state.userVisible = false;
     this.state.hamburgerVisible = false;
+    this.state.searchVisible = false;
   },
 
   linkClickedEvent() {
@@ -238,6 +241,7 @@ export default createWidget('header', {
       return DiscourseURL.routeTo('/search' + params);
     }
 
+    this.state.searchVisible = !this.state.searchVisible;
     this.updateHighlight();
 
     if (this.state.searchVisible) {

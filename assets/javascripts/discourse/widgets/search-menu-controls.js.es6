@@ -44,6 +44,9 @@ createWidget('search-context', {
                   ]));
     }
 
+    result.push(this.attach('link', { href: Discourse.getURL('/search?expanded=true'),
+                                      label: 'show_help',
+                                      className: 'show-help' }));
     result.push(h('div.clearfix'));
     return result;
   },

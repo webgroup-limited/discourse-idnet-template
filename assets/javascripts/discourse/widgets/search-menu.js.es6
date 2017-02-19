@@ -65,43 +65,27 @@ const SearchHelper = {
 };
 
 export default createWidget('search-menu', {
-  tagName: 'li.search-menu',
+  tagName: 'div.search-menu',
 
-  fullSearchUrl(opts) {
+  fullSearchUrl() {
     const contextEnabled = searchData.contextEnabled;
 
     const ctx = contextEnabled ? this.searchContext() : null;
-    const type = ctx ? Ember.get(ctx, 'type') : null;
+    const type = Ember.get(ctx, 'type');
 
     if (contextEnabled && type === 'topic') {
       return;
     }
 
-    let url = '/search';
-    const params = [];
-
-    if (searchData.term) {
-      let query = '';
-
-      query += `q=${encodeURIComponent(searchData.term)}`;
-
-      if (contextEnabled) {
-        if (this.currentUser &&
-            ctx.id.toString().toLowerCase() === this.currentUser.username_lower &&
-            type === "private_messages") {
-          query += ' in:private';
-        } else {
-          query += encodeURIComponent(" " + type + ":" + ctx.id);
-        }
+    let url = '/search?q=' + encodeURIComponent(searchData.term);
+    if (contextEnabled) {
+      if (this.currentUser &&
+          ctx.id.toString().toLowerCase() === this.currentUser.username_lower &&
+          type === "private_messages") {
+        url += ' in:private';
+      } else {
+        url += encodeURIComponent(" " + type + ":" + ctx.id);
       }
-
-      if (query) params.push(query);
-    }
-
-    if (opts && opts.expanded) params.push('expanded=true');
-
-    if (params.length > 0) {
-      url = `${url}?${params.join("&")}`;
     }
 
     return Discourse.getURL(url);
@@ -110,13 +94,8 @@ export default createWidget('search-menu', {
   panelContents() {
     const contextEnabled = searchData.contextEnabled;
 
-    const results = [
-      this.attach('search-term', { value: searchData.term, contextEnabled }),
-      this.attach('search-context', {
-        contextEnabled,
-        url: this.fullSearchUrl({ expanded: true })
-      })
-    ];
+    const results = [this.attach('search-term', { value: searchData.term, contextEnabled }),
+                     this.attach('search-context', { contextEnabled })];
 
     if (searchData.term) {
       if (searchData.loading) {
@@ -149,7 +128,11 @@ export default createWidget('search-menu', {
   html(attrs) {
     searchData.contextEnabled = attrs.contextEnabled;
 
-    return this.panelContents();
+    return this.attach('menu-panel', { maxWidth: 500, contents: () => this.panelContents() });
+  },
+
+  clickOutside() {
+    this.sendWidgetAction('toggleSearchMenu');
   },
 
   triggerSearch() {
