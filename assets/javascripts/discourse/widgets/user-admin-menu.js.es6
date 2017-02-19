@@ -11,13 +11,13 @@ export default createWidget('user-admin-menu', {
 
     const links = [{ route: 'admin',
                      className: 'admin-link',
-                     icon: 'wrench',
+                     icon: 'idnet-admin',
                      label: 'admin_title' }];
 
     links.push({ route: 'queued-posts',
                  className: 'queued-posts-link',
                  label: 'queue.title',
-                 icon: 'flag',
+                 icon: 'idnet-needs-approval',
                  badgeCount: 'post_queue_new_count',
                  badgeClass: 'queued-posts' });
 
@@ -32,7 +32,7 @@ export default createWidget('user-admin-menu', {
 
     if (currentUser.admin) {
       links.push({ route: 'adminSiteSettings',
-                   icon: 'gear',
+                   icon: 'idnet-settings',
                    label: 'admin.site_settings.title',
                    className: 'settings-link' });
     }

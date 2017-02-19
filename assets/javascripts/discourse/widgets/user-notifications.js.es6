@@ -9,7 +9,7 @@ export default createWidget('user-notifications', {
   html(attrs, state) {
     return [this.attach('link', { label: 'user.notifications',
                       className: 'user-notifications-link',
-                      icon: 'bookmark',
+                      icon: 'idnet-notifications',
                       href: `${attrs.path}/notifications`,
                       badgeCount: 'unread_notifications',
                       badgeClass: 'unread-notifications' })];

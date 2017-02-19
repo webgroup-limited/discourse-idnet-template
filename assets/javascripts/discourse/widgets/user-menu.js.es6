@@ -17,7 +17,7 @@ createWidget('user-menu-links', {
 
     glyphs.push(this.attach('link', { label: 'user.activity_stream',
                       className: 'user-activity-link',
-                      icon: 'bookmark',
+                      icon: 'idnet-activity',
                       href: `${path}/activity` }));
 
     glyphs.push(this.attach('user-notifications', { path }));
@@ -25,7 +25,7 @@ createWidget('user-menu-links', {
     if (siteSettings.enable_private_messages) {
       glyphs.push(this.attach('link', { label: 'user.private_messages',
                     className: 'user-pms-link',
-                    icon: 'envelope',
+                    icon: 'idnet-messages',
                     href: `${path}/messages` }));
     }
 
@@ -36,7 +36,7 @@ createWidget('user-menu-links', {
 
     glyphs.push(this.attach('link', { label: 'user.summary.title',
                       className: 'user-summary-link',
-                      icon: 'bookmark',
+                      icon: 'idnet-summary',
                       href: `${path}/summary` }));
 
 
@@ -63,7 +63,7 @@ createWidget('user-menu-links', {
     // preferences always goes last
     glyphs.push(this.attach('link', { label: 'user.preferences',
                   className: 'user-preferences-link',
-                  icon: 'gear',
+                  icon: 'idnet-preferences',
                   href: `${path}/preferences` }));
 
     return h('ul', [
@@ -85,7 +85,7 @@ export default createWidget('user-menu', {
               h('ul',
                 h('li', this.attach('link', { action: 'logout',
                                                        className: 'logout',
-                                                       icon: 'sign-out',
+                                                       icon: 'idnet-logout',
                                                        label: 'user.log_out' })))
               ])];
   },
