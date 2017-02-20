@@ -139,11 +139,12 @@
   .idnet-admin-menu-links,
   .logout-link {
     li {
-      padding: 5px 15px;
       &:hover {
         background: #eee;
       }
       a {
+        display: block;
+        padding: 5px 15px;
         font-size: 12px;
         font-weight: 700;
         color: black;
