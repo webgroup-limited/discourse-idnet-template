@@ -128,6 +128,7 @@ register_asset "stylesheets/desktop/discourse.scss", :desktop
 register_asset "stylesheets/desktop/topic-list.scss", :desktop
 register_asset "stylesheets/desktop/topic-post.scss", :desktop
 register_asset "stylesheets/desktop/topic.scss", :desktop
+register_asset "stylesheets/desktop/alert.scss", :desktop
 register_asset "stylesheets/desktop/idnet.scss", :desktop
 
 register_asset "stylesheets/mobile/header.scss", :mobile
