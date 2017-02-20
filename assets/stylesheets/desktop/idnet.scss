@@ -216,3 +216,9 @@
     }
   }
 }
+
+/* should be included from desktop/alert.scss but discourse does not want to load this file */
+.alert {
+  border-radius: 3px;
+  margin: 10px 0 20px;
+}
