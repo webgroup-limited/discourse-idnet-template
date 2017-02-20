@@ -218,7 +218,6 @@ export default createWidget('post-menu', {
       const button = this.attachButton(i, attrs);
 
       if (i == 'like-count' && button) {
-console.log(attrs);
         visibleButtonsRightSide.push(button);
         return;
       }
@@ -245,7 +244,6 @@ console.log(attrs);
       visibleButtons.splice(visibleButtons.length - 1, 0, showMore);
     }
 
-console.log(attrs);
     const repliesButton = this.attachButton('replies', attrs);
     if (repliesButton) {
       visibleButtonsRightSide.push(repliesButton);
