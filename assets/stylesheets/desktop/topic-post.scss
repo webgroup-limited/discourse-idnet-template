@@ -5,23 +5,40 @@ section.post-menu-area {
 }
 
 nav.post-controls {
+  padding: 0 20px 10px 10px;
   .actions {
     text-align: left;
     float: left;
   }
 }
 
-$topic-body-width: 850px;
+$topic-meta-body-width: 850px;
 $topic-avatar-width: 90px;
 
+.topic-meta-body {
+  width: $topic-meta-body-width;
+  float: left;
+  .topic-meta-data {
+    background: rgba(215, 215, 215, 0.29);
+    margin-bottom: 2px;
+    padding: 12px 11px 15px 11px;
+    border-radius: 6px;
+  }
+}
+
 .topic-body {
-  width: $topic-body-width;
+  width: 100%;
   border-top: 0;
   background: rgba(215,215,215,0.29);
   border-radius: 6px;
+  padding: 0;
   .post-info {
     position: relative;
     float: right;
+    padding: 20px 20px 0 0;
+  }
+  .cooked {
+    padding: 20px 20px 15px 20px;
   }
 }
 
@@ -31,7 +48,7 @@ $topic-avatar-width: 90px;
   padding-right: 0;
   padding-top: 0;
   border-radius: 2px;
-  padding-right: 12px;
+  padding-right: 20px;
   text-align: right;
   .username {
     overflow: hidden;
@@ -74,7 +91,6 @@ $topic-avatar-width: 90px;
 
 .embedded-posts {
   margin-bottom: 10px;
-
   .topic-body {
     box-sizing: border-box;
     width: calc(100% - 130px); // [100% - .topic-avatar width]
@@ -95,5 +111,14 @@ $topic-avatar-width: 90px;
   &.top {
     margin-left: 0;
     width: 974px;
+  }
+}
+
+@media (max-width: 940px) {
+  .topic-meta-body {
+    width: 100%;
+  }
+  #topic-closing-info {
+    width: 100%;
   }
 }

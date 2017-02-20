@@ -8,3 +8,9 @@
     }
   }
 }
+
+@media (max-width: 720px) {
+  .nav-pills {
+    display: none;
+  }
+}

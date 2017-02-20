@@ -158,16 +158,6 @@
   }
 }
 
-.topic-meta-body {
-  float: left;
-  .topic-meta-data {
-    background: rgba(215, 215, 215, 0.29);
-    margin-bottom: 2px;
-    padding: 12px 11px 15px 11px;
-    border-radius: 6px;
-  }
-}
-
 .fa-idnet-activity {
   background: asset-url('images/fa-icons/activity-icon.png');
 }
@@ -217,4 +207,12 @@
   height: 12px;
   background-size: 12px;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 720px) {
+  .idnet {
+    &.last-topic {
+      display: none;
+    }
+  }
 }
