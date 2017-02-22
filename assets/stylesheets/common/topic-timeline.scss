@@ -1,8 +1,10 @@
 .timeline-container {
+  height: auto;
   @media all and (min-width: 1250px) {
     margin-left: 1020px;
   }
-  .topic-timeline {
+  .topic-timeline,
+  .topic-timeline-controls {
     margin-left: 0;
     text-align: center;
     width: 70px;
@@ -11,5 +13,72 @@
     border: 1px solid rgba(150,150,150,0.17);
     box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.03);
     border-radius: 7px;
+  }
+  .topic-timeline {
+    span {
+      display: block;
+      font-family: Roboto-Regular;
+      font-size: 10px;
+      color: #3D71A8;
+      width: 45px;
+      margin: 0 auto;
+      line-height: 10px;
+      &:first-child {
+        margin-top: 12px;
+      }
+    }
+    a {
+      font-weight: bold;
+      font-size: 10px;
+      color: #3D71A8 !important;
+      &:last-child {
+        margin-bottom: 12px;
+        margin-top: 2px;
+      }
+    }
+    .timeline-scrollarea {
+      border-color: #3D71A8;
+      border-radius: 2px;
+      margin-left: 2.5em;
+      margin-top: 17px;
+      margin-bottom: 17px;
+      .timeline-scroller-content {
+        display: none;
+        position: absolute;
+        margin-left: -90px;
+        padding: 10px;
+        color: white !important;
+        background: #070707;
+        border-radius: 3px;
+        width: 60px;
+        .timeline-ago {
+          color: white;
+        }
+      }
+    }
+    .timeline-handle {
+      border-radius: 4px;
+      background: #3D71A8;
+    }
+    &:hover {
+      .timeline-scroller-content {
+          display: block;
+      }
+    }
+  }
+  .topic-timeline-controls {
+    margin-top: 10px;
+    padding: 20px 0 0 0;
+    &.docked {
+      display: none;
+    }
+    button {
+      &.create,
+      &.notifications-dropdown,
+      &.no-text {
+        background: inherit;
+        margin-bottom: 16px;
+      }
+    }
   }
 }
