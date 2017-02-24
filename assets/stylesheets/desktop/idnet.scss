@@ -210,6 +210,39 @@
   background-repeat: no-repeat;
 }
 
+.fa-idnet-collapse {
+  background: asset-url('images/fa-icons/collapse@2x.png');
+  &:hover {
+    background: asset-url('images/fa-icons/collapse-hover@2x.png');
+  }
+}
+
+.fa-idnet-expand {
+  background: asset-url('images/fa-icons/expand@2x.png');
+  &:hover {
+    background: asset-url('images/fa-icons/expand-hover@2x.png');
+  }
+}
+
+.fa-idnet-arrow-up {
+  background: asset-url('images/fa-icons/arrow-up@2x.png');
+  &:hover {
+    background: asset-url('images/fa-icons/arrow-up-hover@2x.png');
+  }
+}
+
+.fa-idnet-collapse,
+.fa-idnet-collapse:hover,
+.fa-idnet-expand,
+.fa-idnet-expand:hover,
+.fa-idnet-arrow-up,
+.fa-idnet-arrow-up:hover {
+  height: 20px;
+  width: 20px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
 @media (max-width: 720px) {
   .idnet {
     &.last-topic {

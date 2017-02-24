@@ -34,35 +34,85 @@ nav.post-controls {
   }
 }
 
+.topic-reply-above {
+  float: left;
+  margin-left: 110px;
+  width: 850px;
+  display: inline-block;
+  .embedded-posts {
+    &.top {
+      background: #ddd;
+      width: 100%;
+      margin: 0 0 2px 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .fa-mail-forward {
+      float: left;
+      margin: 20px 0 0 10px;
+      color: #DC7600 !important;
+    }
+    .topic-avatar {
+      padding-left: 0;
+      padding-right: 10px;
+      width: 30px;
+      .avatar {
+        width: 25px;
+        height: 25px;
+      }
+      div {
+        display: none;
+      }
+    }
+    .topic-body {
+      padding: 0;
+      margin: 15px 0;
+      width: calc(100% - 135px);
+      background: #eee;
+      .topic-meta-data {
+        margin: 10px 0 10px 20px;
+        width: initial;
+        padding: 0;
+        background: none;
+      }
+      .cooked {
+        padding: 0 0 0 20px;
+      }
+    }
+    .idnet-collapse-reply-above,
+    .idnet-jump-to-reply {
+      float: right;
+      margin: 12px 11px 0 0;
+    }
+  }
+}
+
+.topic-meta-data {
+  background: #ddd;
+  margin-bottom: 2px;
+  padding: 12px 11px 15px 11px;
+  border-radius: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-left: 110px;
+  width: 828px;
+  &.hide-meta-data {
+    display: none;
+  }
+  .reply-to-tab {
+    color: #DC7600 !important;
+    font-weight: 700;
+    .idnet-expand-reply-above,
+    .idnet-jump-to-reply {
+      float: right;
+      margin: 0 0 0 10px;
+      cursor: pointer;
+    }
+  }
+}
+
 $topic-meta-body-width: 850px;
 $topic-avatar-width: 90px;
-
-.topic-meta-body {
-  width: $topic-meta-body-width;
-  float: left;
-  .topic-meta-data {
-    background: rgba(215, 215, 215, 0.29);
-    margin-bottom: 2px;
-    padding: 12px 11px 15px 11px;
-    border-radius: 6px;
-  }
-}
-
-.topic-body {
-  width: 100%;
-  border-top: 0;
-  background: rgba(215,215,215,0.29);
-  border-radius: 6px;
-  padding: 0;
-  .post-info {
-    position: relative;
-    float: right;
-    padding: 20px 20px 0 0;
-  }
-  .cooked {
-    padding: 20px 20px 0px 20px;
-  }
-}
 
 .topic-avatar {
   width: $topic-avatar-width;
@@ -92,6 +142,38 @@ $topic-avatar-width: 90px;
   }
 }
 
+.topic-meta-body {
+  width: $topic-meta-body-width;
+  float: left;
+  &.no-top-border-radius {
+    .topic-body {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+.topic-body {
+  width: 100%;
+  border-top: 0;
+  background: rgba(215,215,215,0.29);
+  border-radius: 6px;
+  padding: 0;
+  .post-info {
+    position: relative;
+    float: right;
+    padding: 20px 20px 0 0;
+  }
+  .cooked {
+    padding: 20px 20px 0px 20px;
+  }
+}
+
+.idnet-post-meta-body {
+  float: left;
+  width: 850px;
+}
+
 .topic-post {
   &:nth-child(even) {
     background: #F5F5F5;
@@ -108,39 +190,5 @@ $topic-avatar-width: 90px;
 .extra-info {
   h1 {
     margin: 0;
-  }
-}
-
-.embedded-posts {
-  margin-bottom: 10px;
-  .topic-body {
-    box-sizing: border-box;
-    width: calc(100% - 130px); // [100% - .topic-avatar width]
-    // WARNING: overflow hide is required for quoted / embedded images
-    // which expect "normal" post width, but expansions are narrower
-    overflow: hidden;
-    padding: 15px 15px 0 15px;
-    margin-top: 15px;
-    .topic-meta-data {
-      display: none;
-    }
-    .cooked {
-      margin-top: 0;
-    }
-  }
-
-  // top means "in reply to expansion" above a post
-  &.top {
-    margin-left: 0;
-    width: 974px;
-  }
-}
-
-@media (max-width: 940px) {
-  .topic-meta-body {
-    width: 100%;
-  }
-  #topic-closing-info {
-    width: 100%;
   }
 }

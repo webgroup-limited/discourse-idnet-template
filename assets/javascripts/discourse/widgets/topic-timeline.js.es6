@@ -97,7 +97,6 @@ createWidget('timeline-scrollarea', {
   },
 
   position() {
-console.log(4444);
     const { attrs } = this;
     const percentage = this.state.percentage;
     const topic = attrs.topic;

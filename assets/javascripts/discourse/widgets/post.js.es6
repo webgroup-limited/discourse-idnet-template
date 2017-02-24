@@ -68,7 +68,9 @@ createWidget('reply-to-tab', {
               username: attrs.replyToUsername
             }),
             ' ',
-            h('span', attrs.replyToUsername)];
+            h('span', attrs.replyToUsername),
+            h('a.idnet-jump-to-reply', iconNode('idnet-arrow-up')),
+            h('a.idnet-expand-reply-above', iconNode('idnet-expand'))];
   },
 
   click() {
@@ -76,7 +78,6 @@ createWidget('reply-to-tab', {
     this.sendWidgetAction('toggleReplyAbove').then(() => this.state.loading = false);
   }
 });
-
 
 createWidget('post-avatar', {
   tagName: 'div.topic-avatar',
@@ -150,9 +151,16 @@ function showReplyTab(attrs, siteSettings) {
 
 createWidget('post-meta-data', {
   tagName: 'div.topic-meta-data',
+
+  buildClasses(attrs) {
+    if (attrs.hideMetaData) {
+      return 'hide-meta-data';
+    }
+    return '';
+  },
+
   html(attrs) {
     const result = [];
-
     if (attrs.isWhisper) {
       result.push(h('div.post-info.whisper', {
         attributes: { title: I18n.t('post.whisper') },
@@ -199,6 +207,18 @@ createWidget('expand-hidden', {
 
   click() {
     this.sendWidgetAction('expandHidden');
+  }
+});
+
+createWidget('idnet-collapse-reply-above', {
+  tagName: 'a.idnet-collapse-reply-above',
+
+  html() {
+    return iconNode('idnet-collapse');
+  },
+
+  click() {
+    this.sendWidgetAction('toggleReplyAbove');
   }
 });
 
@@ -324,12 +344,15 @@ createWidget('post-body', {
 createWidget('post-meta-body', {
   tagName: 'div.topic-meta-body.clearfix',
 
+  buildClasses(attrs) {
+    if (attrs.reply_to_post_number) {
+      return 'no-top-border-radius';
+    }
+    return '';
+  },
+
   html(attrs) {
     const result = [];
-
-    if (showReplyTab(attrs, this.siteSettings)) {
-      result.push(this.attach('post-meta-data', attrs));
-    }
 
     result.push(this.attach('post-body', attrs));
     return result;
@@ -361,14 +384,26 @@ createWidget('post-article', {
 
   html(attrs, state) {
     const rows = [h('a.tabLoc', { attributes: { href: ''} })];
+    const result = [];
+    let repliesAbove = [];
+
     if (state.repliesAbove.length) {
       const replies = state.repliesAbove.map(p => {
-        return this.attach('embedded-post', p, { model: this.store.createRecord('post', p), state: { above: true } });
+        return this.attach('idnet-embedded-post', p, { model: this.store.createRecord('post', p), state: { above: true } });
       });
-      rows.push(h('div.row', h('section.embedded-posts.top.topic-body.offset2', replies)));
+      repliesAbove.push(h('div.topic-reply-above', h('section.embedded-posts.top.topic-body.offset2', replies)));
+      attrs.hideMetaData = true;
+      result.push(repliesAbove);
     }
 
-    rows.push(h('div.row', [this.attach('post-avatar', attrs), this.attach('post-meta-body', attrs)]));
+    if (showReplyTab(attrs, this.siteSettings)) {
+      result.push(this.attach('post-meta-data', attrs));
+    }
+
+    result.push(this.attach('post-avatar', attrs));
+    result.push(this.attach('post-meta-body', attrs));
+
+    rows.push(h('div.row', result));
     return rows;
   },
 
