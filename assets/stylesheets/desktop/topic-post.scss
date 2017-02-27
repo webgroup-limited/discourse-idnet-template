@@ -100,14 +100,23 @@ nav.post-controls {
     display: none;
   }
   .reply-to-tab {
+    display: inline-block;
+    width: 96%;
     color: #DC7600 !important;
     font-weight: 700;
-    .idnet-expand-reply-above,
-    .idnet-jump-to-reply {
+    .idnet-expand-reply-above {
       float: right;
       margin: 0 0 0 10px;
       cursor: pointer;
     }
+  }
+  .up-button {
+    float: right;
+  }
+  .idnet-jump-to-reply {
+    float: right;
+    margin: 0 0 0 10px;
+    cursor: pointer;
   }
 }
 

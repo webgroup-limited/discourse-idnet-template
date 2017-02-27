@@ -69,7 +69,6 @@ createWidget('reply-to-tab', {
             }),
             ' ',
             h('span', attrs.replyToUsername),
-            h('a.idnet-jump-to-reply', iconNode('idnet-arrow-up')),
             h('a.idnet-expand-reply-above', iconNode('idnet-expand'))];
   },
 
@@ -185,6 +184,7 @@ createWidget('post-meta-data', {
 
     if (showReplyTab(attrs, this.siteSettings)) {
       result.push(this.attach('reply-to-tab', attrs));
+      result.push(h('div.up-button', this.attach('idnet-post-link-arrow', { above: true, shareUrl: attrs.replyShareUrl })));
     }
 
     result.push(h('div.read-state', {
@@ -392,8 +392,13 @@ createWidget('post-article', {
         return this.attach('idnet-embedded-post', p, { model: this.store.createRecord('post', p), state: { above: true } });
       });
       repliesAbove.push(h('div.topic-reply-above', h('section.embedded-posts.top.topic-body.offset2', replies)));
+
       attrs.hideMetaData = true;
       result.push(repliesAbove);
+    }
+
+    if (attrs.reply_to_post_number) {
+      attrs.replyShareUrl = this._getReplyUrl();
     }
 
     if (showReplyTab(attrs, this.siteSettings)) {
@@ -405,6 +410,11 @@ createWidget('post-article', {
 
     rows.push(h('div.row', result));
     return rows;
+  },
+
+  _getReplyUrl() {
+    const topicUrl = this._getTopicUrl();
+    return `${topicUrl}/${this.attrs.reply_to_post_number}`;
   },
 
   _getTopicUrl() {
