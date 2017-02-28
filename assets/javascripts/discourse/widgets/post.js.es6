@@ -351,7 +351,7 @@ createWidget('post-meta-body', {
   tagName: 'div.topic-meta-body.clearfix',
 
   buildClasses(attrs) {
-    if (attrs.reply_to_post_number) {
+    if (showReplyTab(attrs, this.siteSettings)) {
       return 'no-top-border-radius';
     }
     return '';
