@@ -23,6 +23,19 @@ nav.post-controls {
     }
     .right {
       float: right;
+      display: inline-block;
+      button,
+      .topic-meta-data {
+        display: inline-block;
+      }
+      .topic-meta-data {
+        .edits {
+          float: none;
+          position: initial;
+          padding: 7px 0 7px 10px;
+          margin: 0;
+        }
+      }
       .like-count {
         margin-right: 0;
         i {
@@ -32,14 +45,17 @@ nav.post-controls {
       }
     }
   }
+  .show-replies {
+    margin: 0;
+  }
 }
 
 .topic-reply-above {
   margin-left: 110px;
-  width: 820px;
+  width: 810px;
   .embedded-posts {
     &.top {
-      padding: 10px 10px 10px 20px;
+      padding: 10px 20px;
       background: #ddd;
       width: 100%;
       margin: 0 0 2px 0;
@@ -66,13 +82,10 @@ nav.post-controls {
     .topic-body {
       padding: 0;
       margin: 0 0 0 10px;
-      width: calc(100% - 120px);
+      width: calc(100% - 130px);
       background: #F0F0F0;
       .topic-meta-data {
         margin: 10px 0 0 10px;
-        width: initial;
-        padding: 0;
-        background: none;
       }
       .cooked {
         padding: 0 0 0 10px;
@@ -86,20 +99,20 @@ nav.post-controls {
     .idnet-collapse-reply-above,
     .idnet-jump-to-reply {
       float: right;
-      margin: 0 0 0 5px;
+      margin: 0 0 0 10px;
     }
   }
 }
 
-.topic-meta-data {
+.topic-reply-data {
   background: #E4E4E4;
   margin-bottom: 2px;
-  padding: 10px 10px 10px 20px;
+  padding: 10px 20px 10px 20px;
   border-radius: 6px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-left: 110px;
-  width: 820px;
+  width: 810px;
   &:hover {
     background: #ddd;
     .fa-idnet-expand {
@@ -112,7 +125,7 @@ nav.post-controls {
   }
   .reply-to-tab {
     display: inline-table;
-    width: 791px;
+    width: 776px;
     color: #DC7600 !important;
     font-weight: 700;
     span {
@@ -134,7 +147,7 @@ nav.post-controls {
   }
   .idnet-jump-to-reply {
     float: right;
-    margin: 0 0 0 5px;
+    margin: 0 0 0 10px;
     cursor: pointer;
     height: 24px;
   }
@@ -208,7 +221,7 @@ $topic-avatar-width: 90px;
   &:nth-child(even) {
     background: #F5F5F5;
   }
-  &.topic-owner:first-child .avatar {
+  &.topic-owner:first-child .topic-avatar .avatar {
     width: 80px;
     height: 80px;
   }

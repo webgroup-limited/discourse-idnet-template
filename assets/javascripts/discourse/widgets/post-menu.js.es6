@@ -249,6 +249,8 @@ export default createWidget('post-menu', {
       visibleButtonsRightSide.push(repliesButton);
     }
 
+    visibleButtonsRightSide.push(this.attach('post-meta-data', attrs));
+
     Object.keys(_extraButtons).forEach(k => {
       const builder = _extraButtons[k];
       if (builder) {

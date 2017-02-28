@@ -148,8 +148,8 @@ function showReplyTab(attrs, siteSettings) {
          (!attrs.replyDirectlyAbove || !siteSettings.suppress_reply_directly_above);
 }
 
-createWidget('post-meta-data', {
-  tagName: 'div.topic-meta-data',
+createWidget('post-reply-data', {
+  tagName: 'div.topic-reply-data',
 
   buildClasses(attrs) {
     if (attrs.hideMetaData) {
@@ -157,6 +157,21 @@ createWidget('post-meta-data', {
     }
     return '';
   },
+
+  html(attrs) {
+    const result = [];
+
+    if (showReplyTab(attrs, this.siteSettings)) {
+      result.push(this.attach('reply-to-tab', attrs));
+      result.push(h('div.up-button', this.attach('idnet-post-link-arrow', { above: true, shareUrl: attrs.replyShareUrl })));
+    }
+
+    return result;
+  }
+});
+
+createWidget('post-meta-data', {
+  tagName: 'div.topic-meta-data',
 
   html(attrs) {
     const result = [];
@@ -180,11 +195,6 @@ createWidget('post-meta-data', {
 
     if (attrs.multiSelect) {
       result.push(this.attach('select-post', attrs));
-    }
-
-    if (showReplyTab(attrs, this.siteSettings)) {
-      result.push(this.attach('reply-to-tab', attrs));
-      result.push(h('div.up-button', this.attach('idnet-post-link-arrow', { above: true, shareUrl: attrs.replyShareUrl })));
     }
 
     result.push(h('div.read-state', {
@@ -328,11 +338,7 @@ createWidget('post-body', {
   tagName: 'div.topic-body.clearfix',
 
   html(attrs) {
-    const result = [];
-
-    const postContents = this.attach('post-contents', attrs);
-
-    result.push(postContents);
+    const result = [this.attach('post-contents', attrs)];
 
     result.push(this.attach('actions-summary', attrs));
     result.push(this.attach('post-links', attrs));
@@ -402,7 +408,7 @@ createWidget('post-article', {
     }
 
     if (showReplyTab(attrs, this.siteSettings)) {
-      result.push(this.attach('post-meta-data', attrs));
+      result.push(this.attach('post-reply-data', attrs));
     }
 
     result.push(this.attach('post-avatar', attrs));
