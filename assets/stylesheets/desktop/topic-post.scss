@@ -67,7 +67,7 @@ nav.post-controls {
       padding: 0;
       margin: 0 0 0 10px;
       width: calc(100% - 120px);
-      background: #E4E4E4;
+      background: #F0F0F0;
       .topic-meta-data {
         margin: 10px 0 0 10px;
         width: initial;
@@ -92,7 +92,7 @@ nav.post-controls {
 }
 
 .topic-meta-data {
-  background: #ddd;
+  background: #E4E4E4;
   margin-bottom: 2px;
   padding: 10px 10px 10px 20px;
   border-radius: 6px;
@@ -100,6 +100,13 @@ nav.post-controls {
   border-bottom-right-radius: 0;
   margin-left: 110px;
   width: 820px;
+  &:hover {
+    background: #ddd;
+    .fa-idnet-expand {
+      background: asset-url('images/fa-icons/expand-hover@2x.png');
+      background-size: 24px;
+    }
+  }
   &.hide-meta-data {
     display: none;
   }
