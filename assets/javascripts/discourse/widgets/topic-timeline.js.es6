@@ -207,7 +207,7 @@ createWidget('topic-timeline-container', {
   },
 
   html(attrs) {
-    return [this.attach('topic-timeline', attrs), this.attach('topic-timeline-controls', attrs)];
+    return [this.attach('topic-timeline', attrs)];
   }
 });
 
@@ -245,47 +245,6 @@ export default createWidget('topic-timeline', {
                               rawLabel: bottomAge,
                               action: 'jumpBottom'
                             })]);
-
-    return result;
-  }
-});
-
-export default createWidget('topic-timeline-controls', {
-  tagName: 'div.topic-timeline-controls',
-
-  buildClasses(attrs) {
-    if (attrs.dockBottom) {
-      return 'docked';
-    }
-  },
-
-  html(attrs) {
-    const { currentUser } = this;
-    const result = [];
-    const { topic } = attrs;
-
-    if (currentUser) {
-      const controls = [];
-
-      if (currentUser && !attrs.fullScreen) {
-        controls.push(this.attach('topic-notifications-button', { topic }));
-      }
-
-      if (!attrs.fullScreen && currentUser && currentUser.get('canManageTopic')) {
-        controls.push(this.attach('topic-admin-menu-button', { topic }));
-      }
-
-      if (!attrs.fullScreen && attrs.topic.get('details.can_create_post')) {
-        controls.push(this.attach('button', {
-          className: 'btn create',
-          icon: 'reply',
-          title: 'topic.reply.help',
-          action: 'replyToPost'
-        }));
-      }
-
-      result.push(h('div.timeline-footer-controls', controls));
-    }
 
     return result;
   }

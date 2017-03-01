@@ -3,8 +3,7 @@
   @media all and (min-width: 1250px) {
     margin-left: 1020px;
   }
-  .topic-timeline,
-  .topic-timeline-controls {
+  .topic-timeline {
     margin-left: 0;
     text-align: center;
     width: 70px;
@@ -84,21 +83,6 @@
     &:hover {
       .timeline-scroller-content {
           display: block;
-      }
-    }
-  }
-  .topic-timeline-controls {
-    margin-top: 10px;
-    padding: 20px 0 0 0;
-    &.docked {
-      display: none;
-    }
-    button {
-      &.create,
-      &.notifications-dropdown,
-      &.no-text {
-        background: inherit;
-        margin-bottom: 16px;
       }
     }
   }
