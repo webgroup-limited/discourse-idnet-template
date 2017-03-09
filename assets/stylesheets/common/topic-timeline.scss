@@ -1,7 +1,10 @@
 .timeline-container {
   height: auto;
-  @media all and (min-width: 1250px) {
+  @media all and (min-width: 1150px) {
     margin-left: 1020px;
+  }
+  @media all and (max-width: 1149px) {
+    display: none;
   }
   .topic-timeline {
     margin-left: 0;
