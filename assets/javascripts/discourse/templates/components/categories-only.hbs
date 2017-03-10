@@ -20,7 +20,7 @@
       {{#each categories as |c|}}
         <tr data-category-id={{c.id}} class="{{if c.description_excerpt 'has-description' 'no-description'}} {{if c.logo_url 'has-logo' 'no-logo'}}">
           {{#unless c.parent_category_id}}
-          <td>{{log c}}
+          <td>
             {{#if c.logo_url}}
               <div>{{cdn-img src=c.logo_url class="category-logo"}}</div>
             {{/if}}
