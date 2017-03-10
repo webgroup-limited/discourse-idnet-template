@@ -5,6 +5,8 @@
       font-weight: 700;
       font-size: 11px;
       color: #0054A6;
+      border: 1px solid #FCFCFC;
+      border-radius: 3px;
     }
   }
 }
@@ -13,4 +15,22 @@
   .nav-pills {
     display: none;
   }
+}
+
+.user-main .nav-pills a.active i {
+  color: #7a7a7a;
+}
+
+.nav-pills > li > a:hover,
+.user-main .nav-pills a:hover i {
+  background-color: initial;
+  color: #7a7a7a;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li > a.active {
+  color: #7a7a7a;
+  background-color: initial;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
