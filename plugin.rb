@@ -122,6 +122,7 @@ register_asset "stylesheets/common/components/keyboard_shortcuts.css.scss"
 register_asset "stylesheets/common/components/navs.css.scss"
 register_asset "stylesheets/common/foundation/colors.scss"
 register_asset "stylesheets/common/topic-timeline.scss"
+register_asset "stylesheets/common/admin/admin_base.scss"
 register_asset "stylesheets/desktop/category-list.scss", :desktop
 register_asset "stylesheets/desktop/discourse.scss", :desktop
 register_asset "stylesheets/desktop/topic-list.scss", :desktop
