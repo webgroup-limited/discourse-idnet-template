@@ -271,3 +271,14 @@ $topic-avatar-width: 90px;
 .small-action {
   max-width: initial;
 }
+
+.discourse-no-touch {
+  .topic-body {
+    .actions {
+      .fade-out {
+        opacity: initial;
+        transition: initial;
+      }
+    }
+  }
+}
