@@ -241,7 +241,7 @@ export default createWidget('post-menu', {
         title: 'show_more',
         className: 'show-more-actions',
         icon: 'ellipsis-h' });
-      visibleButtons.splice(visibleButtons.length - 1, 0, showMore);
+      visibleButtons.splice(visibleButtons.length, 0, showMore);
     }
 
     const repliesButton = this.attachButton('replies', attrs);
