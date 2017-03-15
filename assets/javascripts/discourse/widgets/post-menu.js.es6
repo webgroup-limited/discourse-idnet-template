@@ -233,6 +233,8 @@ export default createWidget('post-menu', {
     // Only show ellipsis if there is more than one button hidden
     // if there are no more buttons, we are not collapsed
     if (!state.collapsed || (allButtons.length <= visibleButtons.length + 1)) {
+console.log('all: ', allButtons);
+console.log('visible: ', visibleButtons);
       visibleButtons = allButtons;
       if (state.collapsed) { state.collapsed = false; }
     } else {
@@ -266,6 +268,7 @@ export default createWidget('post-menu', {
           }
 
           if (button) {
+console.log('position: ', position);
             switch(position) {
               case 'first':
                 visibleButtons.unshift(button);
