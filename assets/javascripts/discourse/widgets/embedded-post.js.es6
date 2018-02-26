@@ -23,27 +23,6 @@ createWidget('post-link-arrow', {
   }
 });
 
-export default createWidget('embedded-post', {
-  buildKey: attrs => `embedded-post-${attrs.id}`,
-
-  html(attrs, state) {
-    return [
-      h('div.reply', {attributes: {'data-post-id': attrs.id}}, [
-        h('div.row', [
-          this.attach('post-avatar', attrs),
-          h('div.topic-body', [
-            h('div.topic-meta-data', [
-              this.attach('poster-name', attrs),
-              this.attach('post-link-arrow', { above: state.above, shareUrl: attrs.shareUrl })
-            ]),
-            new PostCooked(attrs, new DecoratorHelper(this))
-          ])
-        ])
-      ])
-    ];
-  }
-});
-
 createWidget('idnet-post-link-arrow', {
   html(attrs) {
    if (attrs.above) {
