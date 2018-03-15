@@ -9,7 +9,7 @@
     {{topic-link topic}}
     {{raw "topic-status" topic=topic}}
   </div>
-  {{plugin-outlet "topic-list-after-title"}}
+  {{plugin-outlet name="topic-list-after-title"}}
   {{#if topic.tags}}
     <div class='discourse-tags'>
     {{#each topic.visibleListTags as |tag|}}
@@ -17,7 +17,7 @@
     {{/each}}
     </div>
   {{/if}}
-  {{plugin-outlet "topic-list-tags"}}
+  {{plugin-outlet name="topic-list-tags"}}
   {{#if expandPinned}}
     {{raw "list/topic-excerpt" topic=topic}}
   {{/if}}

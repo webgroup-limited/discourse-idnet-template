@@ -5,7 +5,7 @@
   </div>
 {{/if}}
 
-{{plugin-outlet "topic-above-post-stream"}}
+{{plugin-outlet name="topic-above-post-stream"}}
 
 {{#if model.postStream.loaded}}
   {{#if model.postStream.firstPostPresent}}
@@ -29,7 +29,7 @@
               {{tag-chooser tags=buffered.tags categoryId=buffered.category_id}}
             {{/if}}
 
-            {{plugin-outlet "edit-topic"}}
+            {{plugin-outlet name="edit-topic"}}
 
             {{d-button action="finishedEditingTopic" class="btn-primary btn-small submit-edit" icon="check"}}
             {{d-button action="cancelEditingTopic" class="btn-small cancel-edit" icon="times"}}
@@ -96,7 +96,7 @@
         <div class="posts-wrapper">
           {{conditional-loading-spinner condition=model.postStream.loadingAbove}}
 
-          {{plugin-outlet "topic-above-posts"}}
+          {{plugin-outlet name="topic-above-posts"}}
 
           {{#unless model.postStream.loadingFilter}}
             {{scrolling-post-stream
@@ -175,7 +175,7 @@
               </div>
             {{/if}}
 
-            {{plugin-outlet "topic-above-suggested"}}
+            {{plugin-outlet name="topic-above-suggested"}}
 
           {{/if}}
         {{/conditional-loading-spinner}}
